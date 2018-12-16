@@ -5,22 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
     <style>
+      * {box-sizing: border-box}
       html {height: 100%;}
-      body {margin: 0}
-      .section {position: relative; height: 110vh; width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;}
-      .section:first-child, .section:last-child {height: 100vh;}
+      body {margin: 0; font-family: sans-serif; font-size: 2vh; line-height: 1.5em; text-align: justify; letter-spacing: -.01em; background: #000; color: #fff; font-weight: 100;}
+      .section {position: relative; height: 110vh; width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: row;}
+      .section--first, .section--last {height: 100vh;}
+
       #logo { max-width: 75%; max-height: 80%} 
-      .section.section--logo {background: #000000; color: white; text-decoration: none; font-family: sans-serif; font-weight: 800; font-size: 1vw; margin: 1.5vh 0}
-      .section--contact {background: #be1e1e}
-      .section--contact > * {color: white; text-decoration: none; font-family: sans-serif; font-weight: 800; font-size: 5vw; margin: 1.5vh 0}
+      .section--color {background: #ef4b49; color: white;}
+      .section--color a {color: white;}
+      .section--image {background-size: cover; background-position: center center;}
+      .section--text {}
+      .section--text .section__text{ padding: 0 10vw;}
+      .section--contact {flex-direction: column}
+      .section--contact > * { text-decoration: none; font-weight: 800; font-size: 5vw; margin: 1.5vh 0}
       .section--video {background: black}
       #video { width: 90vw; height: 50vw;}
       .scroll-indicator {position: absolute; right: 0; bottom: 0; white-space: nowrap; margin: 4vh 3vh; }
       @keyframes scroll-indicator-arrow {
-        from {color: rgb(255, 0, 121);}
-        to {color: white;}
+        from {color: white;}
+        to {color: black;}
       }
-      .scroll-indicator-arrow {display: block; font-size: 10vh; line-height: 3.5vh; color: rgb(255, 0, 121); animation-name: scroll-indicator-arrow; animation-duration: 1s; animation-iteration-count: infinite;}
+      .scroll-indicator-arrow {display: block; font-size: 10vh; line-height: 3.5vh; animation-name: scroll-indicator-arrow; animation-duration: 1s; animation-iteration-count: infinite;}
       .scroll-indicator-arrow:nth-child(1) {
         animation-delay: .33333s;
       }
@@ -30,28 +36,56 @@
       .scroll-indicator-arrow:nth-child(3) {
         animation-delay: 1s;
       }
+
+      @media (min-width: 600px) {
+        .section--wrapper {display: flex; flex-direction: row;}
+        .section--reverse {flex-direction: row-reverse;}
+      }
+      
     </style>
   </head>
   <body>
-    <div class='section section--logo'>
+    <div class='section section--logo section--first'>
       <img id='logo' alt='Coco Popshow' src='coco-popshow-logo.png' />
       <div class='scroll-indicator'>
         <i class='scroll-indicator-arrow fa fa-angle-down'></i>
         <i class='scroll-indicator-arrow fa fa-angle-down'></i>
         <i class='scroll-indicator-arrow fa fa-angle-down'></i>
       </div>
-      De Coco Popshow is een mobiele popquiz gepresenteerd door Coco. Laagdrempelig, grappig en geschikt voor allerlei soorten terreinen en evenementen. De vragen gaan over hits van de jaren ‘70 tot nu en kan dus gespeeld worden door alle leeftijden. Aan het einde van de quiz is er natuurlijk een winnaar die zich de rest van het leven ‘Coco Pop Pro’ mag noemen.
+    </div>
+    <div class='section--wrapper section--color'>
+      <div class='section section--text'>
+        <div class='section__text'>
+          De Coco Popshow is een mobiele popquiz gepresenteerd door Coco. Lopend over een festivalterrein of evenement kan iedereen haar aanschieten voor een snelle quiz tussen twee spelers of teams. Ze heeft alle benodigdheden voor een goede muziekquiz om en aan haar lichaam, á la eenmansorkest. De quiz begint met een gepersonaliseerde show jingle, daarna volgen drie rondes met muziekfragmenten, vragen en zing-de-zin-af-ronde. Het niveau van de quiz is laagdrempelig, geen obscure artiesten maar hitjes van de jaren ‘70 tot nu die minstens een 'oh ja’ oproepen. De winnaar wordt gekroond tot ‘Coco Pop Pro’ en wint een mini kazoo.      
+        </div>
+      </div>
+      <div class='section section--image' style='background-image: url("./Coco Popshow - Pluimage Festival - .jpg")'>
+      </div>
     </div>
     <div class='section section--video'>
       <iframe id='video' src="https://www.youtube.com/embed/videoseries?list=PL1Sz-CH6-3Q0ff728Z9CmmUH-vQq665-H" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <div class='section section--contact'>
-      <a target='_blank' id='twitter' href='https://www.facebook.com/Cocopopshow/'><i class='fa fa-facebook' /></i> /cocopopshow</a>
-      <a target='_blank' id='instagram' href='https://www.instagram.com/cocopopshow/'><i class='fa fa-instagram' /></i> @cocopopshow</a>
-      <a href='tel:+31651446575'><span><i class='fa fa-mobile-phone' /></i> +31 6 51 446 575</span></a>
-      <a id='mail' href='mailto:cocopopshow@gmail.com'>cocopopshow@gmail.com</a>
+    <div class='section--wrapper section--reverse section--color'>
+      <div class='section section--text'>
+        <div class='section__text'>
+          Naast de mobiele quiz is er ook een pubquiz variant, dus meerdere groepen in een zaal met Coco achter de microfoon als quizmaster en, indien gewenst, met live muziek! De inhoud van de quiz gaat natuurlijk uitsluitend over muziek en kan volledig aangepast worden op het thema van het feest. Voor deze quiz hoef je geen muziekkenner te zijn om mee te doen, alle muziek is bekend van de radio en voor iedereen komt er wel een geliefd nummer voorbij! 
+          <br>
+          Een Coco Pubquiz heeft meestal 7 rondes met een pauze na de 4e ronde met aansluitend een tussenstand om de spanning op te voeren. Er zijn verschillende rondes zoals een plaatjesronde, videoronde, geluidsfragmenten raden, teksten van liedjes afmaken en vragenrondes. Elke ronde duurt ongeveer 15 minuten, met pauze en prijsuitreiking duurt het geheel zo’n 2,5 tot 3 uur. Maar de duur en opbouw kan volledig naar wens worden aangepast.
+        </div>
+      </div>
+      <div class='section section--image' style='background-image: url("./Coco Popshow - Soccerrocker - Marcia van Tilburg.jpg")'>
+      </div>
     </div>
-    <div class='section section--contact'>
+    <div class='section--wrapper'>
+      <div class='section section--text'>
+        <div class='section__text'>
+          Gezien op: Zwarte Cross, Hippe Happen Festival, Nijmeegse Kunstnacht, Proef Pampus, Serious Request, Efteling Midsummer Festival, Soccerrocker, Magneet Festival, Stukafest Amsterdam, Delft Fringe, Tip the Triplets Benefiet, De Beschaving, Festival Op 't Eiland, Kobus Knal Fuif, Festival Hongerige Wolf, Bevrijdingspop Haarlem, Summerjazz, Kids 'N' Billies, Leeffestival, Gimme Shelter Festival, Raaffestijn, Zwarte Cross, Solar Weekend, Sommeltjespop, Helemaal Melkweg, Festyland, Theaterfestival de Parade, Festival Halte Hembrug, Pluimage Festival en anderen.
+        </div>
+      </div>
+      <div class='section section--image' style='background-image: url("./Coco Popshow - Poldergoud - Ilja Huner.jpg")'>
+      </div>
+    </div>
+    <div class='section section--color section--contact section--last'>
       <a target='_blank' id='twitter' href='https://www.facebook.com/Cocopopshow/'><i class='fa fa-facebook' /></i> /cocopopshow</a>
       <a target='_blank' id='instagram' href='https://www.instagram.com/cocopopshow/'><i class='fa fa-instagram' /></i> @cocopopshow</a>
       <a href='tel:+31651446575'><span><i class='fa fa-mobile-phone' /></i> +31 6 51 446 575</span></a>
